@@ -1,0 +1,87 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{%static 'blog/post_detail.css' %}">
+{% endblock css %}
+{% block page_title %}
+    Post Detail
+{% endblock page_title %}
+{% block content %}
+<main class="flex pt-10 px-24">
+    <div class="w-3/4">
+        <div class="p-5 border-2 rounded shadow-md mb-5">
+            <h3 class="text-4xl mb-5">{{ post.title}}</h3>
+            <p class="text-gray-400 text-sm mb-5">by: {{ post.author}}</p>
+            <p class="mb-6">
+                {{ post.text }}
+            </p>
+            <div class="flex relative ">
+                <a href="#"
+                    class=" text-white rounded bg-gray-500 py-3 w-32 text-center hover:bg-gray-700 border-2 border-green-700 mr-3">
+                    Edit Post
+                </a>
+                <a href="#"
+                    class=" text-white rounded bg-red-500 py-3 w-32 text-center hover:bg-red-700 mr-3">
+                    Delete Post
+                </a>
+            </div>
+        </div>
+        <div class="p-5 border-2 rounded shadow-md mb-5">
+            <h3 class="text-4xl mb-5">Comments:</h3>
+            <p class="mb-6">No comments yet! Be the first one.</p>
+
+        <div class="p-5 border-2 rounded shadow-md mb-5">
+            <h3 class="text-4xl mb-5">Add new Comment:</h3>
+            <label for="name">Enter your name:</label><br/>
+            <input
+                    class="w-full border focus:border-cyan-500 focus:outline-none p-2 focus:ring-4 rounded mt-1 mb-4"
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="eg.John Doe"
+            /><br/>
+            <label for="email">Your Email:</label><br/>
+            <input
+                    class="w-full border focus:border-cyan-500 focus:outline-none p-2 focus:ring-4 rounded mt-1 mb-4"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="example@gmail.com"
+            /><br/>
+            <label for="text">Comment text:</label><br/>
+            <textarea
+                    name="text"
+                    id="text"
+                    class="w-full border focus:border-cyan-500 focus:outline-none p-3 h-32 focus:ring-4 rounded mt-1 mb-4"
+                    placeholder="Enter your comment text here..."
+            ></textarea>
+
+      <button
+        class="text-white rounded bg-blue-500 py-3 w-32 text-center hover:bg-blue-700 focus:ring-4 focus:outline-none"
+      >
+        Submit
+      </button>
+        </div>
+    </div>
+    </div>
+    <aside class="w-1/4 p-5">
+        <div class="shadow-md border-2 rounded">
+            <div class="bg-gray-200 p-2 text-xl">About</div>
+            <div class="p-3">
+                <p class="mb-6">
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content. Some quick example text to build on
+                    the card title and make up the bulk of the card's content. Some
+                    quick example text to build on the card title and make up the bulk
+                    of the card's content.
+                </p>
+                <button
+                        class="text-white rounded bg-red-700 p-2 hover:bg-red-600 focus:ring-4 focus:ring-red-200 focus:outline-none"
+                >
+                    More...
+                </button>
+            </div>
+        </div>
+    </aside>
+</main>
+{% endblock content %}

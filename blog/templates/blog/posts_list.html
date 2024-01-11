@@ -1,0 +1,53 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog/posts_list.css' %}">
+{% endblock css %}
+{% block page_title %}
+Posts List
+{% endblock page_title %}
+
+{% block content %}
+<main class="flex pt-10 px-24">
+    <div class="w-3/4">
+        {% for post in posts %}
+        <div class="p-5 border-2 rounded shadow-md mb-5">
+            <h3 class="text-xl mb-2">{{ post.title}}</h3>
+            <p class="text-gray-400 text-sm mb-5">by: {{ post.author }}</p>
+            <p class="mb-6">{{ post.text }}</p>
+            <div class="flex relative ">
+                <a href="{% url 'post_detail' post.id %}"
+                    class="text-white rounded bg-green-700 py-3 w-32 text-center hover:bg-green-600 mr-3">
+                    Read More
+                </a>
+                <a href="#"
+                    class=" text-green-700 rounded bg-white py-3 w-32 text-center hover:bg-green-100 border-2 border-green-700">
+                    Edit Post
+                </a>
+                <a href="#" class="ml-auto text-white rounded bg-red-600 py-3 w-32 text-center hover:bg-red-400 mr-3">
+                    Delete Post
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    <aside class="w-1/4 p-5">
+        <div class="shadow-md border-2 rounded">
+            <div class="bg-gray-200 p-2 text-xl">About</div>
+            <div class="p-3">
+                <p class="mb-6">
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content. Some quick example text to build on
+                    the card title and make up the bulk of the card's content. Some
+                    quick example text to build on the card title and make up the bulk
+                    of the card's content.
+                </p>
+                <button
+                    class="text-white rounded bg-red-700 p-2 hover:bg-red-600 focus:ring-4 focus:ring-red-200 focus:outline-none">
+                    More...
+                </button>
+            </div>
+        </div>
+    </aside>
+</main>{% endblock content %}
