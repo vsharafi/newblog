@@ -38,4 +38,6 @@ class PostTest(TestCase):
         response = self.client.get('/blog/100/')
         self.assertEqual(response.status_code, 404)
 
-    
+    def test_post_list_templates(self):
+        response = self.client.get('/blog/')
+        self.assertTemplateUsed(response, 'blog/posts_list.html')
