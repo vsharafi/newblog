@@ -1,0 +1,44 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog/post_delete.css' %}">
+{% endblock css %}
+{% block page_title %}
+Delete Post
+{% endblock page_title %}
+
+{% block content %}
+<main class="flex pt-10 px-24">
+    <div class="w-3/4">
+        <div class="p-5 border-2 rounded shadow-md mb-5">
+          <h3 class="text-xl mb-2">Are You Sure?</h3>
+          <p class="mb-6">are you sure you want to delete <span class="underline">{{post.title}}</span> post permanently? </p>
+          <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Yes, Delete" class="text-white rounded bg-red-600 py-3 w-32 text-center hover:bg-red-400 mr-3">
+          </form>
+                
+          </div>
+    </div>
+    </div>
+    <aside class="w-1/4 p-5">
+        <div class="shadow-md border-2 rounded">
+            <div class="bg-gray-200 p-2 text-xl">About</div>
+            <div class="p-3">
+                <p class="mb-6">
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content. Some quick example text to build on
+                    the card title and make up the bulk of the card's content. Some
+                    quick example text to build on the card title and make up the bulk
+                    of the card's content.
+                </p>
+                <button
+                        class="text-white rounded bg-red-700 p-2 hover:bg-red-600 focus:ring-4 focus:ring-red-200 focus:outline-none"
+                >
+                    More...
+                </button>
+            </div>
+        </div>
+    </aside>
+</main>
+{% endblock content %}

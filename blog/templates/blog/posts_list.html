@@ -16,15 +16,15 @@ Posts List
             <p class="text-gray-400 text-sm mb-5">by: {{ post.author }}</p>
             <p class="mb-6">{{ post.text }}</p>
             <div class="flex relative ">
-                <a href="{% url 'post_detail' post.id %}"
+                <a href="{% url 'post_detail' post.pk %}"
                     class="text-white rounded bg-green-700 py-3 w-32 text-center hover:bg-green-600 mr-3">
                     Read More
                 </a>
-                <a href="#"
+                <a href="{% url 'post_update' post.pk %}"
                     class=" text-green-700 rounded bg-white py-3 w-32 text-center hover:bg-green-100 border-2 border-green-700">
                     Edit Post
                 </a>
-                <a href="#" class="ml-auto text-white rounded bg-red-600 py-3 w-32 text-center hover:bg-red-400 mr-3">
+                <a href="{% url 'post_delete' post.pk %}" class="ml-auto text-white rounded bg-red-600 py-3 w-32 text-center hover:bg-red-400 mr-3">
                     Delete Post
                 </a>
             </div>

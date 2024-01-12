@@ -1,0 +1,51 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog/post_add.css' %}">
+{% endblock css %}
+{% block page_title %}
+New Post
+{% endblock page_title %}
+
+{% block content %}
+<main class="flex pt-10 px-24">
+    <div class="w-3/4">
+        <div class="p-5 border-2 rounded shadow-md mb-5">
+          <h3 class="text-4xl mb-7">Add new post:</h3>
+            <form action="" method="post">
+                {% csrf_token %}
+                <label class="" for="title">Enter post title:</label><br>
+                {% render_field form.title class+="mb-3 mt-1 w-full p-2 focus:ring-4 rounded border-2 focus:outline-none" type="text" name="title" id="title" placeholder="e.g. Some Title" %}
+                <label class="" for="text">Enter post text:</label><br>
+                {% render_field form.text class="mb-3 mt-1 w-full p-2 focus:ring-4 rounded border-2 focus:outline-none" name="text" id="text" cols="30" rows="10" placeholder="Enter your post text here..." %}
+                <label class="" for="author">Author:</label><br>
+                {% render_field form.author class="mb-3 mt-1 w-full p-2 focus:ring-4 rounded border-2 focus:outline-none" name="author" id="author" %}
+                <label class="" for="status">Status:</label><br>
+                {% render_field form.status class="mb-3 mt-1 w-full p-2 focus:ring-4 rounded border-2 focus:outline-none" name="status" id="status" %}
+                <button class="text-white rounded bg-blue-700 p-2 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200" type="submit">Submit</button>
+        
+            </form>
+</div>
+    </div>
+    </div>
+    <aside class="w-1/4 p-5">
+        <div class="shadow-md border-2 rounded">
+            <div class="bg-gray-200 p-2 text-xl">About</div>
+            <div class="p-3">
+                <p class="mb-6">
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content. Some quick example text to build on
+                    the card title and make up the bulk of the card's content. Some
+                    quick example text to build on the card title and make up the bulk
+                    of the card's content.
+                </p>
+                <button
+                        class="text-white rounded bg-red-700 p-2 hover:bg-red-600 focus:ring-4 focus:ring-red-200 focus:outline-none"
+                >
+                    More...
+                </button>
+            </div>
+        </div>
+    </aside>
+</main>{% endblock content %}
