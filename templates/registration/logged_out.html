@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'output.css' %}">
+{% endblock css %}
+{% block page_title %}
+Logged Out
+{% endblock page_title %}
+
+
+{% block content %}
+<main class="pt-10 px-24">
+    <div class="w-2/4 mx-auto">
+        <div class="p-5 border-2 rounded shadow-md mb-5">
+          <h3 class="text-3xl mb-10 text-center font-semibold">You’ve successfully logged out of Blog Site!</h3>
+          <div class="text-center"><a href="{% url 'login'%}"  class="text-white rounded mx-auto bg-blue-600 py-3 px-3 hover:bg-blue-400">Login again?</a></div>
+        </div>
+    </div>
+</main>
+{% endblock %}

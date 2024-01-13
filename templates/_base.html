@@ -17,7 +17,14 @@
         <li class="hover:text-gray-300"><a href="#">Home</a></li>
         <li class="hover:text-gray-300"><a href="{% url 'posts_list' %}">Blog</a></li>
         <li><a href="{% url 'post_add' %}">New Post</a></li>
-              <li class="ml-auto">Welcome</li>
+        {% if user.is_authenticated %}
+        <li class="ml-auto flex gap-3"><p>Welcome {{user.username}}</p><p>|</p><form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit">Log Out</button>
+      </form></li>
+        {% else %}
+        <li class="ml-auto"><a href="{% url 'login' %}">Login</a> | <a href="{% url 'signup' %}">Sign Up</a></li>
+        {% endif %}
       </ul>
     </div>
     <header class="bg-blue-400 text-white px-32 py-10">
